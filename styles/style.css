@@ -1,5 +1,330 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  color: var(--text-color, #f1b2ce);
+  font-family: var(--main-font, sans-serif);
+  font-size: 18px;
+  line-height: 130%;
+  background-color: var(--bg-color, #000028);
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.title-decor {
+  background-color: var(--accent-color, #ff0070);
+  color: var(--accented-text-color, #000028);
+}
+
+.heading {
+  font-size: inherit;
+}
+
+.decorated-zone::before {
+  content: '';
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+  inset-inline-end: var(--outer-spacing, 10px);
+  inset-block-start: var(--outer-spacing, 10px);
+  border-block-start: 1px solid var(--special-text-color);
+  border-inline-end: 1px solid var(--special-text-color);
+}
+
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+  inset-inline-start: var(--outer-spacing, 10px);
+  inset-block-end: var(--outer-spacing, 10px);
+  border-block-end: 1px solid var(--special-text-color);
+  border-inline-start: 1px solid var(--special-text-color);
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
+  block-size: 100vh;
+  min-block-size: 668px;
+  padding: var(--outer-spacing, 10px);
+  margin-block-end: var(--section-margin-y);
+}
+
+.header__sign {
+  position: absolute;
+  inset-inline-end: 38px;
+  inset-block-start: var(--outer-spacing, 10px);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 139%;
+  text-transform: uppercase;
+  color: var(--special-text-color);
+}
+
+.header__sign::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 43px;
+  inset-block-start: 8px;
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color, #ff0070);
+  box-shadow: 0 0 4px 2px var(--accent-color, #ff0070);
+}
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  padding: 4px 13px;
+  font-family: var(--main-font, sans-serif);
+  font-size: inherit;
+  line-height: 100%;
+  color: var(--special-text-color);
+  text-transform: lowercase;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid currentColor;
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid rgb(255 0 112 / 0.4);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid currentColor;
+}
+
+.site-title {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 82.5%;
+  color: var(--title-color, #db00ff);
+  text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
+}
+
+.header__lead {
+  font-weight: 700;
+}
+
+.content__section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding-inline-start: var(--outer-spacing, 10px);
+  padding-inline-end: var(--outer-spacing, 10px);
+  margin-block-end: var(--content-section-margin-y);
+}
+
+.content__section-title {
+  color: var(--special-text-color);
+}
+
+.content__section-item:not(:last-of-type) {
+  margin-block-end: 20px;
+}
+
+.content__section-subtitle {
+  margin-block-end: 10px;
+}
+
+.content__tips-subtitle {
+  margin-block-end: 20px;
+}
+
+.content__section-item-heading {
+  margin-block-end: 10px;
+  font-weight: 400;
+}
+
+.text-link {
+  text-decoration: none;
+  color: inherit;
+  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+  cursor: pointer;
+}
+
+.text-link:hover {
+  border-block-end: 1px solid currentColor;
+}
+
+.text-link:focus {
+  outline: none;
+}
+
+.text-link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.gallery {
+  padding-inline-start: var(--outer-spacing, 10px);
+  padding-inline-end: var(--outer-spacing, 10px);
+  margin-block-end: var(--section-margin-y);
+}
+
+.gallery__title {
+  margin-block-end: 10px;
+}
+
+.gallery__images {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__image {
+  display: block;
+  inline-size: 100%;
+}
+
+.page-footer {
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 100vh;
+  min-block-size: 668px;
+  padding: var(--outer-spacing, 10px);
+}
+
+@media (width >= 768px) {
+  .decorated-zone::before {
+    --outer-spacing: 20px;
+  }
+
+  .decorated-zone::after {
+    --outer-spacing: 20px;
+  }
+
+  .header {
+    min-block-size: 1024px;
+    --outer-spacing: 20px;
+    --section-margin-y: 60px;
+  }
+
+  .header__sign {
+    --outer-spacing: 20px;
+    inset-inline-end: 48px;
+  }
+
+  .site-title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__title {
+    transform: translateX(-20px);
+  }
+
+  .header__lead {
+    justify-self: end;
+    max-inline-size: calc(50%);
+  }
+
+  .content__section {
+    grid-template-columns: 1fr 2fr;
+    --outer-spacing: 20px;
+    --content-section-margin-y: 80px;
+  }
+
+  .content__factors {
+    grid-template-columns: 1fr;
+  }
+
+  .content__factors-title {
+    max-inline-size: calc(100% / 3 - 60px);
+  }
+
+  .gallery {
+    --outer-spacing: 20px;
+    --section-margin-y: 60px;
+  }
+
+  .gallery__title {
+    margin-block-end: 20px;
+  }
+
+  .gallery__images {
+    min-block-size: 780px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content;
+    gap: 20px;
+  }
+
+  .gallery__image-1 {
+    grid-column: 1 / 3;
+  }
+
+  .gallery__image-2 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+  }
+
+  .gallery__image-3 {
+    grid-row: 2 / 4;
+  }
+
+  .gallery__image-5 {
+    grid-column: 2 / 4;
+  }
+
+  .gallery__image {
+    object-fit: cover;
+    block-size: 100%;
+  }
+
+  .page-footer {
+    min-block-size: 1024px;
+    --outer-spacing: 20px;
+  }
+}
+
+@media (width >= 1024px) {
+  .header {
+    min-block-size: 768px;
+  }
+
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .site-title {
+    font-size: 157px;
+  }
+
+  .content__factors-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .page-footer {
+    min-block-size: 768px;
+  }
 }
