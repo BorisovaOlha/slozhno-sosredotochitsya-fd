@@ -15,15 +15,12 @@
   --text-color: #353430;
   --special-text-color: #353430;
   --accented-text-color: #353430;
+  --menu-btn-hover-color: rgb(50 49 45 / 0.4);
   --bg-image: none;
 }
 
 .theme-light .header__sign {
   display: none;
-}
-
-.theme-light .header__theme-menu-button:hover {
-  outline: 1px solid rgb(50 49 45 / 0.4);
 }
 
 @media (prefers-color-scheme: light) {
@@ -39,9 +36,5 @@
 
   .header__sign {
     display: none;
-  }
-
-  .header__theme-menu-button:hover {
-    outline: 1px solid rgb(50 49 45 / 0.4);
   }
 }
