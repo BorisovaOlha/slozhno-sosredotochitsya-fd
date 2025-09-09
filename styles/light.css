@@ -23,6 +23,19 @@
   display: none;
 }
 
+/* В разборе цвет активной кнопки и эффект при наведении заменен здесь:
+.theme_light .header__theme-menu-button_active {
+  border: 1px solid var(--nav-color);
+}
+
+.theme_light .header__theme-menu-button:hover {
+  --nav-hover-color: rgb(50 49 45 / 0.4);
+} */
+
+/* Добавляем медиазапрос предполчтений пользователя,
+где дублируем переменные и стили для светлой темы.
+У меня не все стили, что есть в разборе (кажется,
+я исползовала currentColor) */
 @media (prefers-color-scheme: light) {
   :root {
     --bg-color: #fff1f7;

@@ -99,15 +99,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-}
-
-.header__theme-menu-button_active {
-  outline: 1px solid currentColor;
-  pointer-events: none;
-}
-
-.header__theme-menu-button:hover {
-  outline: 1px solid var(--menu-btn-hover-color, rgb(255 0 112 / 0.4));
+  appearance: none;
 }
 
 .header__theme-menu-button:focus {
@@ -116,6 +108,27 @@
 
 .header__theme-menu-button:focus-visible {
   border-block-end: 1px solid currentColor;
+}
+
+/* Как в разборе вместо моего .header__theme-menu-button:focus-visible: 
+  .header__theme-menu-button:focus-visible::after {
+  content: '';
+  position: absolute;
+  inline-size: 100%;
+  block-size: 1px;
+  background-color: var(--nav-color);
+  inset-block-end: -2px;
+  inset-inline-start: 0;
+  }
+*/
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--menu-btn-hover-color, rgb(255 0 112 / 0.4));
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid currentColor;
+  pointer-events: none;
 }
 
 .site-title {
